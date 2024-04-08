@@ -41,7 +41,7 @@ Why not combine the best of both worlds to efficiently scale up your bot? This a
 
 The system utilizes clusters or master shards, similar to regular shards in a sharding manager. These clusters can spawn internal shards, reducing the need for as many regular shards. For example, in a Discord bot with 4000 guilds, instead of spawning 4 shards with the Sharding Manager (approximately 4 x 200MB memory on idle), we start with 2 clusters/master shards, each spawning 2 internal shards. This results in a saving of 2 shards compared to the regular Sharding Manager (approximately 2 x 200MB memory).
 
-**If you need help, feel free to join following <a href="https://discord.gg/YTdNBHh">discord server</a>. **
+**If you need help, feel free to join following <a href="https://discord.gg/YTdNBHh">discord server</a>.**
 
 ## Getting Started
 
