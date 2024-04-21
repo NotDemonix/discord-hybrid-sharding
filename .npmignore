@@ -2,7 +2,9 @@ docs
 .github
 node_modules
 test
-assests
+CODE_OF_CONDUCT.md
+./.vscode
+./assests
 .test
 .jsdoc.conf.json
 package-lock.json
