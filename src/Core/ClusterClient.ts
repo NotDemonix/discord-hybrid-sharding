@@ -1,5 +1,13 @@
 import { IPCMessage, BaseMessage, RawMessage } from '../Structures/IPCMessage';
-import { Awaitable, ClusterClientEvents, DjsDiscordClient, evalOptions, Events, messageType, Serialized } from '../types/shared';
+import {
+    Awaitable,
+    ClusterClientEvents,
+    DjsDiscordClient,
+    evalOptions,
+    Events,
+    messageType,
+    Serialized,
+} from '../types/shared';
 
 import { ClusterManager as Manager } from '../Core/ClusterManager';
 
@@ -98,20 +106,17 @@ export class ClusterClient<DiscordClient = DjsDiscordClient> extends EventEmitte
     }
 
     /**
-     * 
+     *
      */
     public get shards() {
         const client = this.client as DjsDiscordClient;
 
         if (!client.ws?.shards) {
-            throw new TypeError(
-                'Websocket shards property is missing on your Discord Client.',
-            );
+            throw new TypeError('Websocket shards property is missing on your Discord Client.');
         }
 
         return client.ws.shards;
     }
-
 
     /**
      * Total number of clusters
@@ -333,38 +338,38 @@ export interface ClusterClient<DiscordClient> {
         event: K,
         ...args: ClusterClientEvents<DiscordClient>[K]
     ) => boolean) &
-    (<S extends string | symbol>(
-        event: Exclude<S, keyof ClusterClientEvents<DiscordClient>>,
-        ...args: any[]
-    ) => boolean);
+        (<S extends string | symbol>(
+            event: Exclude<S, keyof ClusterClientEvents<DiscordClient>>,
+            ...args: any[]
+        ) => boolean);
 
     off: (<K extends keyof ClusterClientEvents<DiscordClient>>(
         event: K,
         listener: (...args: ClusterClientEvents<DiscordClient>[K]) => void,
     ) => this) &
-    (<S extends string | symbol>(
-        event: Exclude<S, keyof ClusterClientEvents<DiscordClient>>,
-        listener: (...args: any[]) => void,
-    ) => this);
+        (<S extends string | symbol>(
+            event: Exclude<S, keyof ClusterClientEvents<DiscordClient>>,
+            listener: (...args: any[]) => void,
+        ) => this);
 
     on: (<K extends keyof ClusterClientEvents<DiscordClient>>(
         event: K,
         listener: (...args: ClusterClientEvents<DiscordClient>[K]) => void,
     ) => this) &
-    (<S extends string | symbol>(
-        event: Exclude<S, keyof ClusterClientEvents<DiscordClient>>,
-        listener: (...args: any[]) => void,
-    ) => this);
+        (<S extends string | symbol>(
+            event: Exclude<S, keyof ClusterClientEvents<DiscordClient>>,
+            listener: (...args: any[]) => void,
+        ) => this);
 
     once: (<K extends keyof ClusterClientEvents<DiscordClient>>(
         event: K,
         listener: (...args: ClusterClientEvents<DiscordClient>[K]) => void,
     ) => this) &
-    (<S extends string | symbol>(
-        event: Exclude<S, keyof ClusterClientEvents<DiscordClient>>,
-        listener: (...args: any[]) => void,
-    ) => this);
+        (<S extends string | symbol>(
+            event: Exclude<S, keyof ClusterClientEvents<DiscordClient>>,
+            listener: (...args: any[]) => void,
+        ) => this);
 
     removeAllListeners: (<K extends keyof ClusterClientEvents<DiscordClient>>(event?: K) => this) &
-    (<S extends string | symbol>(event?: Exclude<S, keyof ClusterClientEvents<DiscordClient>>) => this);
+        (<S extends string | symbol>(event?: Exclude<S, keyof ClusterClientEvents<DiscordClient>>) => this);
 }

@@ -100,7 +100,7 @@ class ClusterManager extends events_1.default {
         const stats = fs_1.default.statSync(this.file);
         if (!stats.isFile())
             throw new Error('CLIENT_INVALID_OPTION | Provided is file is not type of file');
-        this.totalShards = options.totalShards === 'auto' ? -1 : options.totalShards ?? -1;
+        this.totalShards = options.totalShards === 'auto' ? -1 : (options.totalShards ?? -1);
         if (this.totalShards !== -1) {
             if (typeof this.totalShards !== 'number' || isNaN(this.totalShards)) {
                 throw new TypeError('CLIENT_INVALID_OPTION | Amount of internal shards must be a number.');
@@ -111,7 +111,7 @@ class ClusterManager extends events_1.default {
                 throw new RangeError('CLIENT_INVALID_OPTION | Amount of internal shards must be an integer.');
             }
         }
-        this.totalClusters = options.totalClusters === 'auto' ? -1 : options.totalClusters ?? -1;
+        this.totalClusters = options.totalClusters === 'auto' ? -1 : (options.totalClusters ?? -1);
         if (this.totalClusters !== -1) {
             if (typeof this.totalClusters !== 'number' || isNaN(this.totalClusters)) {
                 throw new TypeError('CLIENT_INVALID_OPTION | Amount of Clusters must be a number.');

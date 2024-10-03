@@ -82,7 +82,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client({
     shards: getInfo().SHARD_LIST, // An array of shards that will get spawned
     shardCount: getInfo().TOTAL_SHARDS, // Total number of shards
-    intents: []
+    intents: [],
 });
 
 client.cluster = new ClusterClient(client); // initialize the Client, so we access the .broadcastEval()
@@ -125,10 +125,10 @@ The Manager.spawn options are the same as for Sharding Manager
 
 ### Cluster Events
 
-| Event         | Description                           |
-| ------------- | ------------------------------------- |
-| clusterCreate | Triggered when a cluster gets spawned |
-| clusterReady | Triggers if the client has fired the ready event for that cluster |
+| Event         | Description                                                       |
+| ------------- | ----------------------------------------------------------------- |
+| clusterCreate | Triggered when a cluster gets spawned                             |
+| clusterReady  | Triggers if the client has fired the ready event for that cluster |
 
 ### Cluster Client Properties
 
@@ -305,7 +305,7 @@ ClusterClient | `client.js`
 
 ```js
 // Typescript: import { ClusterClient, getInfo, messageType } from 'discord-hybrid-sharding'
-const { ClusterClient, getInfo, messageType} = require('discord-hybrid-sharding');
+const { ClusterClient, getInfo, messageType } = require('discord-hybrid-sharding');
 const Discord = require('discord.js');
 const client = new Discord.Client({
     shards: getInfo().SHARD_LIST, // An array of shards that will get spawned
@@ -316,7 +316,7 @@ client.cluster = new ClusterClient(client);
 client.cluster.on('message', message => {
     console.log(message);
     if (message._type !== messageType.CUSTOM_REQUEST) return; // Check if the message needs a reply
-    if(message.alive) message.reply({ content: 'Yes I am!' });
+    if (message.alive) message.reply({ content: 'Yes I am!' });
 });
 setInterval(() => {
     client.cluster.send({ content: 'I am alive as well!' });
@@ -325,6 +325,7 @@ client.login('YOUR_TOKEN');
 ```
 
 ## Control Cluster queue:
+
 With a complex code-base, you probably need a fine-grained control over the cluster spawn queue in order to respect rate limits.
 
 The queue system can be controlled from the cluster manager.
@@ -362,6 +363,7 @@ Now you can call the function `client.cluster.spawnNextCluster()` from the clien
 | client.cluster.spawnNextCluster() | Triggers the spawn of the next cluster in the queue    |
 
 ## Other Features:
+
 Evaluates a script on the ClusterManager:
 
 ```
@@ -412,6 +414,7 @@ client.cluster.triggerReady();
 With some minor changes, you can even use this Package for clustering normal processes.
 
 # Bugs, Glitches and Issues
+
 If you encounter any problems feel free to open an issue in our <a href="https://github.com/meister03/discord-hybrid-sharding/issues">gitHub repository</a> or join the <a href="https://discord.gg/YTdNBHh">discord server</a>.
 
 # Credits
