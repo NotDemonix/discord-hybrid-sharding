@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { Cluster } from '../Core/Cluster';
 import { ClusterManager } from '../Core/ClusterManager';
 export type keepAliveOptions = {

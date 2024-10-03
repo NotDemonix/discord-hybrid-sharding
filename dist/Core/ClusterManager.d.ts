@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import EventEmitter from 'events';
 import { Queue } from '../Structures/Queue';
 import { Cluster } from './Cluster';
@@ -132,7 +131,7 @@ export declare class ClusterManager extends EventEmitter {
      * Kills all running clusters and respawns them.
      * @param options Options for respawning shards
      */
-    respawnAll({ clusterDelay, respawnDelay, timeout }?: {
+    respawnAll({ clusterDelay, respawnDelay, timeout, }?: {
         clusterDelay?: number | undefined;
         respawnDelay?: number | undefined;
         timeout?: number | undefined;

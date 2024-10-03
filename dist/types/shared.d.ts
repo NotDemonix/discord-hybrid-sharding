@@ -1,5 +1,3 @@
-/// <reference types="node" />
-/// <reference types="node" />
 import { ChildProcess, Serializable } from 'child_process';
 import { Worker } from 'worker_threads';
 import { Cluster } from '../Core/Cluster';

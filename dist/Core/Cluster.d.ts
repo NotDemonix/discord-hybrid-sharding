@@ -1,8 +1,3 @@
-/// <reference types="node" />
-/// <reference types="node" />
-/// <reference types="node" />
-/// <reference types="node" />
-/// <reference types="node" />
 import { ClusterManager } from './ClusterManager';
 import EventEmitter from 'events';
 import { ClusterEvents, ClusterKillOptions } from '../types/shared';

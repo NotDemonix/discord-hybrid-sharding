@@ -82,6 +82,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client({
     shards: getInfo().SHARD_LIST, // An array of shards that will get spawned
     shardCount: getInfo().TOTAL_SHARDS, // Total number of shards
+    intents: []
 });
 
 client.cluster = new ClusterClient(client); // initialize the Client, so we access the .broadcastEval()
@@ -137,7 +138,8 @@ Other properties:
 | ------------- | -------------- |
 | client.cluster.count | Returns the amount of all clusters |
 | client.cluster.id | Returns the current cluster ID |
-| client.cluster.ids | Returns all internal shards of the cluster |
+| client.cluster.shardList | Returns an array of shard ids on the current cluster |
+| client.cluster.shards | Returns the client.ws.shards collection |
 
 # Changes | Migrating to Discord-Hybrid-Sharding
 
@@ -187,7 +189,8 @@ Get all ShardID's in the current cluster:
 
 ```diff
 - client.shard.id
-+ [...client.cluster.ids.keys()]
++ client.cluster.shardList // Array of internal shard ids
++ client.cluster.shards // Collection of ws shards
 ```
 
 # New Features
